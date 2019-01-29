@@ -1,20 +1,20 @@
-##Django中使用celery  
-###使用  
+## Django中使用celery  
+### 使用  
 python manange.py celery worker -l INFO  
 python manange.py celery beat -l INFO  
 python manange.py runserver  
 
-###安装  
+### 安装  
 pip install django-celery  
 
-###启动 celery worker  
+### 启动 celery worker  
 python manange.py celery worker -l INFO  
 
-###启动定时任务, 这两句作用相同:  
+### 启动定时任务, 这两句作用相同:  
 python manange.py celery beat -l INFO  
 python manange.py celerybeat -l INFO  
 
-###配置  
+### 配置  
 ```python
 BROKER_BACKEND = "redis"
 BROKER_URL = 'redis://localhost:6379/0'
@@ -22,7 +22,7 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 ```
 
-###可以在celery 配置文件中,为不同的任务指定不同的队列  
+### 可以在celery 配置文件中,为不同的任务指定不同的队列  
 ```python
 # set different queue for different tasks,
 # prevent different tasks from influencing each other
@@ -39,7 +39,7 @@ CELERY_QUEUES = {
     }
 }
 ```
-###定时任务可以通过options参数指定队列  
+### 定时任务可以通过options参数指定队列  
 ```python
 CELERYBEAT_SCHEDULE = {
         # set a name for the task
@@ -59,5 +59,5 @@ CELERYBEAT_SCHEDULE = {
 
 }
 ```
-###其它:  
+### 其它:  
 发送任务到celery的时候delay() apply_async()两个函数都可以, delay()也可传入参数, 但是在参数很多的时候,比如需要手动制定队列时, 使用apply_async()更合适一点  
