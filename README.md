@@ -1,18 +1,25 @@
 ## Django中使用celery  
 ### 使用  
-python manange.py celery worker -l INFO  
-python manange.py celery beat -l INFO  
-python manange.py runserver  
+- python manange.py celery worker -l INFO  
+- python manange.py celery beat -l INFO  
+- python manange.py runserver  
+- python manange.py celery flower   # 使用这个命令可以自动读取到配置文件中的配置信息
 
 ### 安装  
-pip install django-celery  
+- pip install django-celery  
+- pip install flower  # 监控
 
 ### 启动 celery worker  
-python manange.py celery worker -l INFO  
+- python manange.py celery worker -l INFO  
 
 ### 启动定时任务, 这两句作用相同:  
-python manange.py celery beat -l INFO  
-python manange.py celerybeat -l INFO  
+- python manange.py celery beat -l INFO  
+- python manange.py celerybeat -l INFO  
+
+### 启动监控
+这两句作用相同
+- celery flower --address 127.0.0.1 --port 9999 --broker <broker_url>  --basic_auth username:password
+- python manange.py celery flower   # 使用这个命令可以自动读取到配置文件中的配置信息
 
 ### 配置  
 ```python
