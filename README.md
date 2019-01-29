@@ -68,3 +68,5 @@ CELERYBEAT_SCHEDULE = {
 ```
 ### 其它:  
 发送任务到celery的时候delay() apply_async()两个函数都可以, delay()也可传入参数, 但是在参数很多的时候,比如需要手动制定队列时, 使用apply_async()更合适一点  
+
+ref: 慕课网《Python 异步任务队列 Celery 使用》
